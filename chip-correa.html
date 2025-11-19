@@ -3,8 +3,9 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Canine Beacon - Project Case Study</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Dog Collar Chip Project - Jorge Coca García</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -25,107 +26,423 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+
+  <style>
+    .project-hero {
+      background: url('assets/img/portfolio/perro.png') top center;
+      background-size: cover;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    
+    .project-hero:before {
+      content: "";
+      background: rgba(5, 13, 24, 0.7);
+      position: absolute;
+      bottom: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+    }
+    
+    .project-hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: white;
+    }
+    
+    .roadmap-timeline {
+      position: relative;
+      padding: 20px 0;
+    }
+    
+    .roadmap-timeline:before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #149ddd;
+      transform: translateX(-50%);
+    }
+    
+    .timeline-item {
+      margin-bottom: 40px;
+      position: relative;
+      width: 50%;
+      padding-right: 30px;
+    }
+    
+    .timeline-item:nth-child(even) {
+      margin-left: 50%;
+      padding-right: 0;
+      padding-left: 30px;
+    }
+    
+    .timeline-content {
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .timeline-content h4 {
+      margin-top: 0;
+      color: #149ddd;
+    }
+    
+    .timeline-item:before {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #149ddd;
+      border-radius: 50%;
+      top: 20px;
+      right: -10px;
+      z-index: 1;
+    }
+    
+    .timeline-item:nth-child(even):before {
+      right: auto;
+      left: -10px;
+    }
+    
+    .gallery-item {
+      margin-bottom: 30px;
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      border-radius: 5px;
+      transition: transform 0.3s;
+    }
+    
+    .gallery-item img:hover {
+      transform: scale(1.03);
+    }
+    
+    @media (max-width: 768px) {
+      .roadmap-timeline:before {
+        left: 30px;
+      }
+      
+      .timeline-item {
+        width: 100%;
+        padding-right: 0;
+        padding-left: 50px;
+      }
+      
+      .timeline-item:nth-child(even) {
+        margin-left: 0;
+        padding-left: 50px;
+      }
+      
+      .timeline-item:before {
+        left: 20px;
+        right: auto;
+      }
+      
+      .timeline-item:nth-child(even):before {
+        left: 20px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
+  <!-- ======= Mobile nav toggle button ======= -->
+  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="d-flex flex-column">
+
+      <div class="profile">
+        <img src="assets/img/Perfil.JPG" alt="" class="img-fluid rounded-circle">
+        <h1 class="text-light fs-4 fw-bold">Jorge Coca <br> García</h1>
+        <div class="social-links mt-3 text-center">
+          <a href="https://github.com/jorgecocag" class="google-plus"><i class="bx bxl-github"></i></a>
+          <a href="www.linkedin.com/in/jorge-coca-garcía/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        </div>
+      </div>
+
+      <nav id="navbar" class="nav-menu navbar">
+        <ul>
+          <li><a href="index.html" class="nav-link"><i class="bx bx-home"></i> <span>Home</span></a></li>
+          <li><a href="index.html#about" class="nav-link"><i class="bx bx-user"></i> <span>About</span></a></li>
+          <li><a href="index.html#resume" class="nav-link"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
+          <li><a href="index.html#portfolio" class="nav-link"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
+          <li><a href="index.html#contact" class="nav-link"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Project Hero Section ======= -->
+  <section class="project-hero">
+    <div class="project-hero-content" data-aos="fade-in">
+      <h1>Smart Dog Collar Chip</h1>
+      <p>Advanced tracking and monitoring system for pets</p>
+    </div>
+  </section><!-- End Project Hero -->
+
   <main id="main">
 
-    <!-- ======= Portfolio Details Section ======= -->
-    <section id="portfolio-details" class="portfolio-details">
+    <!-- ======= Project Description Section ======= -->
+    <section id="project-description" class="project-description">
       <div class="container">
 
-        <div class="row gy-4">
-
-          <div class="col-lg-8">
-            <div class="portfolio-details-slider swiper">
-              <div class="swiper-wrapper align-items-center">
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/perro.png" alt="Canine Beacon Device">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/portfolio-details-2.jpg" alt="PCB Design">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/portfolio-details-3.jpg" alt="Prototype Testing">
-                </div>
-
-              </div>
-              <div class="swiper-pagination"></div>
-            </div>
-          </div>
-
-          <div class="col-lg-4">
-            <div class="portfolio-info">
-              <h3>Project information</h3>
-              <ul>
-                <li><strong>Category</strong>: Electronics Design</li>
-                <li><strong>Project date</strong>: November 2025</li>
-                <li><strong>Project URL</strong>: <a href="chip-correa.html">Canine Beacon</a></li>
-              </ul>
-            </div>
-            <div class="portfolio-description">
-              <h2>Canine Beacon - IoT chip for dog collars</h2>
-              <p>
-                The Canine Beacon project consists of a compact IoT chip designed to attach to a dog collar. It provides real-time GPS tracking, audio monitoring through MEMS microphones, temperature sensing, and low-power operation for extended battery life.
-              </p>
-            </div>
-          </div>
-
+        <div class="section-title">
+          <h2>Project Description</h2>
+          <p>The Smart Dog Collar Chip is an innovative IoT device designed to provide comprehensive monitoring and tracking capabilities for pets. This compact device integrates multiple sensors and communication modules to ensure the safety and well-being of your furry friends.</p>
         </div>
 
-        <div class="row mt-4">
-          <div class="col-lg-12">
-            <div class="resume">
-              <h3 class="resume-title">Project Roadmap</h3>
-              
-              <div class="resume-item">
-                <h4>Phase 1 — Requirements</h4>
-                <p><em>Defined functional requirements</em></p>
-                <p>GPS sensitivity, audio detection, temperature monitoring, battery life, and water resistance (IP67).</p>
-              </div>
-
-              <div class="resume-item">
-                <h4>Phase 2 — Proof of Concept</h4>
-                <p><em>Breadboard prototype</em></p>
-                <p>Built prototype with GPS module and MCU. Validated satellite reception, audio sampling, and temperature reading.</p>
-              </div>
-
-              <div class="resume-item">
-                <h4>Phase 3 — Schematic & Component Selection</h4>
-                <p><em>KiCad design</em></p>
-                <p>Designed schematic selecting MCU, GPS module, MEMS microphones, voltage regulator, and USB-C connector.</p>
-              </div>
-
-              <div class="resume-item">
-                <h4>Phase 4 — PCB Design</h4>
-                <p><em>Compact two-layer PCB</em></p>
-                <p>Optimized antenna routing and prepared Gerber files for manufacturing.</p>
-              </div>
-
-              <div class="resume-item">
-                <h4>Phase 5 — Firmware Development</h4>
-                <p><em>Embedded programming</em></p>
-                <p>Developed firmware for power management, GPS parsing, audio event detection, and BLE/LTE-M telemetry.</p>
-              </div>
-
-              <div class="resume-item">
-                <h4>Phase 6 — Assembly & Testing</h4>
-                <p><em>Prototype validation</em></p>
-                <p>Soldered prototype PCBs, verified GPS accuracy, audio detection, battery performance, and water resistance.</p>
-              </div>
-
-            </div>
+        <div class="row">
+          <div class="col-lg-6" data-aos="fade-right">
+            <h3>Key Features</h3>
+            <ul>
+              <li><strong>GPS Tracking:</strong> Real-time location tracking with geofencing capabilities</li>
+              <li><strong>Temperature Monitoring:</strong> Continuous body temperature measurement</li>
+              <li><strong>Activity Tracking:</strong> Monitors daily activity levels and sleep patterns</li>
+              <li><strong>Audio Monitoring:</strong> Built-in microphone for remote listening</li>
+              <li><strong>Long Battery Life:</strong> Up to 2 weeks of operation on a single charge</li>
+              <li><strong>Water Resistant:</strong> IP67 rating for protection against water and dust</li>
+              <li><strong>Mobile App Integration:</strong> Companion app for iOS and Android</li>
+            </ul>
+          </div>
+          <div class="col-lg-6" data-aos="fade-left">
+            <h3>Technical Specifications</h3>
+            <ul>
+              <li><strong>Microcontroller:</strong> ESP32 with integrated Wi-Fi and Bluetooth</li>
+              <li><strong>GPS Module:</strong> u-blox NEO-6M with external antenna</li>
+              <li><strong>Sensors:</strong> Temperature, accelerometer, microphone</li>
+              <li><strong>Battery:</strong> 1000mAh Li-Po with charging circuit</li>
+              <li><strong>Connectivity:</strong> Wi-Fi, Bluetooth 5.0, and optional cellular module</li>
+              <li><strong>Dimensions:</strong> 40mm x 30mm x 10mm</li>
+              <li><strong>Weight:</strong> 15 grams (excluding collar)</li>
+            </ul>
           </div>
         </div>
 
       </div>
-    </section><!-- End Portfolio Details Section -->
+    </section><!-- End Project Description Section -->
+
+    <!-- ======= Roadmap Section ======= -->
+    <section id="roadmap" class="roadmap section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Project Roadmap</h2>
+          <p>The development of the Smart Dog Collar Chip followed a structured approach from concept to final product.</p>
+        </div>
+
+        <div class="roadmap-timeline">
+          
+          <div class="timeline-item" data-aos="fade-up">
+            <div class="timeline-content">
+              <h4>Phase 1: Research & Concept</h4>
+              <p><em>January 2023 - February 2023</em></p>
+              <ul>
+                <li>Market analysis and user requirements gathering</li>
+                <li>Technical feasibility study</li>
+                <li>Initial concept design and specifications</li>
+                <li>Component selection and sourcing</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-aos="fade-up">
+            <div class="timeline-content">
+              <h4>Phase 2: PCB Design & Prototyping</h4>
+              <p><em>March 2023 - May 2023</em></p>
+              <ul>
+                <li>Schematic design and component placement</li>
+                <li>PCB layout with focus on miniaturization</li>
+                <li>Prototype fabrication and assembly</li>
+                <li>Initial testing and validation</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-aos="fade-up">
+            <div class="timeline-content">
+              <h4>Phase 3: Firmware Development</h4>
+              <p><em>June 2023 - August 2023</em></p>
+              <ul>
+                <li>Embedded software development for ESP32</li>
+                <li>Sensor integration and calibration</li>
+                <li>Power management optimization</li>
+                <li>Communication protocols implementation</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-aos="fade-up">
+            <div class="timeline-content">
+              <h4>Phase 4: Enclosure Design & Testing</h4>
+              <p><em>September 2023 - November 2023</em></p>
+              <ul>
+                <li>3D modeling of enclosure</li>
+                <li>Material selection for durability and comfort</li>
+                <li>Environmental testing (water, shock, temperature)</li>
+                <li>User testing with volunteer pet owners</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-aos="fade-up">
+            <div class="timeline-content">
+              <h4>Phase 5: Final Product & Documentation</h4>
+              <p><em>December 2023 - Present</em></p>
+              <ul>
+                <li>Final design refinements</li>
+                <li>Manufacturing preparation</li>
+                <li>Documentation and user manual</li>
+                <li>App development and integration</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Roadmap Section -->
+
+    <!-- ======= Gallery Section ======= -->
+    <section id="gallery" class="gallery">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Project Gallery</h2>
+          <p>Visual documentation of the design and development process.</p>
+        </div>
+
+        <div class="row">
+          
+          <div class="col-lg-4 col-md-6 gallery-item" data-aos="fade-up">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/perro.png" class="img-fluid" alt="Concept Image">
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/perro.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Concept Image"><i class="bx bx-plus"></i></a>
+              </div>
+            </div>
+            <p class="text-center mt-2"><strong>Concept Design</strong></p>
+          </div>
+
+          <div class="col-lg-4 col-md-6 gallery-item" data-aos="fade-up" data-aos-delay="100">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/pcb-design.jpg" class="img-fluid" alt="PCB Design">
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/pcb-design.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="PCB Design"><i class="bx bx-plus"></i></a>
+              </div>
+            </div>
+            <p class="text-center mt-2"><strong>PCB Layout</strong></p>
+          </div>
+
+          <div class="col-lg-4 col-md-6 gallery-item" data-aos="fade-up" data-aos-delay="200">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/prototype.jpg" class="img-fluid" alt="Prototype">
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/prototype.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Prototype"><i class="bx bx-plus"></i></a>
+              </div>
+            </div>
+            <p class="text-center mt-2"><strong>First Prototype</strong></p>
+          </div>
+
+          <div class="col-lg-4 col-md-6 gallery-item" data-aos="fade-up">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/enclosure.jpg" class="img-fluid" alt="Enclosure Design">
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/enclosure.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Enclosure Design"><i class="bx bx-plus"></i></a>
+              </div>
+            </div>
+            <p class="text-center mt-2"><strong>3D Printed Enclosure</strong></p>
+          </div>
+
+          <div class="col-lg-4 col-md-6 gallery-item" data-aos="fade-up" data-aos-delay="100">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/testing.jpg" class="img-fluid" alt="Testing">
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/testing.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Testing"><i class="bx bx-plus"></i></a>
+              </div>
+            </div>
+            <p class="text-center mt-2"><strong>Environmental Testing</strong></p>
+          </div>
+
+          <div class="col-lg-4 col-md-6 gallery-item" data-aos="fade-up" data-aos-delay="200">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/final-product.jpg" class="img-fluid" alt="Final Product">
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/final-product.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Final Product"><i class="bx bx-plus"></i></a>
+              </div>
+            </div>
+            <p class="text-center mt-2"><strong>Final Product</strong></p>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Gallery Section -->
+
+    <!-- ======= Challenges Section ======= -->
+    <section id="challenges" class="challenges section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Technical Challenges & Solutions</h2>
+          <p>Overcoming obstacles in the development process.</p>
+        </div>
+
+        <div class="row">
+          
+          <div class="col-lg-6" data-aos="fade-up">
+            <div class="challenge-box">
+              <h4>Power Management</h4>
+              <p><strong>Challenge:</strong> Achieving extended battery life while maintaining continuous GPS tracking.</p>
+              <p><strong>Solution:</strong> Implemented adaptive GPS polling based on movement detection and optimized sleep modes for all components.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="challenge-box">
+              <h4>Miniaturization</h4>
+              <p><strong>Challenge:</strong> Fitting all components in a small, lightweight enclosure suitable for a dog collar.</p>
+              <p><strong>Solution:</strong> Used a 4-layer PCB with careful component placement and selected miniature versions of all components.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up">
+            <div class="challenge-box">
+              <h4>Environmental Protection</h4>
+              <p><strong>Challenge:</strong> Ensuring reliable operation in various weather conditions and during water exposure.</p>
+              <p><strong>Solution:</strong> Implemented IP67 rated enclosure with specialized sealing techniques and conformal coating on the PCB.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="challenge-box">
+              <h4>Connectivity Reliability</h4>
+              <p><strong>Challenge:</strong> Maintaining stable connection in areas with limited network coverage.</p>
+              <p><strong>Solution:</strong> Implemented data buffering and automatic reconnection protocols with multiple communication fallbacks.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Challenges Section -->
 
   </main><!-- End #main -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>

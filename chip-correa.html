@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Canine Beacon — Case Study</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <meta name="description" content="Desarrollo del proyecto Canine Beacon: diseño electrónico, firmware, pruebas y fotos finales de PCB.">
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--accent1:#6EE7B7;--accent2:#60A5FA;--muted:#A7B0C2;--glass:rgba(255,255,255,0.04);--radius:14px;max-width:1100px;font-family:'Inter',system-ui,Roboto,Arial}
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#071025 0%, #071827 60%);color:#E6EEF8}
+    .container{max-width:var(--max-width);margin:36px auto;padding:20px}
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:52px;height:52px;border-radius:10px;background:linear-gradient(135deg,var(--accent2),var(--accent1));display:grid;place-items:center;font-weight:800;color:#022}
+    nav a{color:var(--muted);text-decoration:none;margin-left:16px;font-weight:600}
+
+    .intro{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:22px;border-radius:var(--radius);box-shadow:0 10px 30px rgba(2,6,23,0.6)}
+    h1{margin:0;font-size:28px}
+    .meta{color:var(--muted);margin-top:6px}
+
+    .grid{display:grid;grid-template-columns:2fr 1fr;gap:20px;margin-top:18px}
+    .card{background:rgba(255,255,255,0.02);padding:18px;border-radius:12px}
+    h2{margin-top:0}
+
+    /* timeline */
+    .timeline{border-left:2px solid rgba(255,255,255,0.03);padding-left:16px;margin-top:12px}
+    .milestone{margin-bottom:18px}
+    .milestone time{display:block;color:var(--muted);font-size:13px}
+    .milestone p{margin:6px 0 0}
+
+    /* specs table */
+    table{width:100%;border-collapse:collapse;margin-top:8px}
+    td,th{padding:10px;border-bottom:1px dashed rgba(255,255,255,0.03);text-align:left}
+    th{color:var(--muted);font-weight:600}
+
+    /* gallery */
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+    .photo{height:130px;border-radius:8px;background:linear-gradient(135deg,var(--accent2),#4f46e5);display:flex;align-items:center;justify-content:center;font-weight:800;color:#022}
+
+    /* code block */
+    pre{background:#021426;padding:12px;border-radius:8px;overflow:auto;color:#CFEFFF}
+
+    footer{margin-top:28px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;align-items:center}
+
+    @media (max-width:900px){.grid{grid-template-columns:1fr}.gallery{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:560px){nav a{display:none}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">CB</div>
+        <div>
+          <div style="font-weight:800">Canine Beacon</div>
+          <small class="meta">Proyecto personal — chip IoT para collar de perro · estudio de caso</small>
+        </div>
+      </div>
+      <nav>
+        <a href="#overview">Resumen</a>
+        <a href="#process">Proceso</a>
+        <a href="#gallery">Galería</a>
+      </nav>
+    </header>
+
+    <section class="intro card" id="overview">
+      <h1>Canine Beacon — diseño y desarrollo</h1>
+      <div class="meta">Objetivo: construir un módulo ligero para collar de perro con localización (GPS), monitorización de sonido y temperatura, diseñado desde el esquema hasta la PCB final.</div>
+
+      <div style="display:flex;gap:12px;margin-top:14px;flex-wrap:wrap">
+        <div style="background:var(--glass);padding:8px 12px;border-radius:999px;font-weight:700">Rol: Diseño electrónico & Firmware</div>
+        <div style="background:var(--glass);padding:8px 12px;border-radius:999px;font-weight:700">Duración: 4 meses</div>
+        <div style="background:var(--glass);padding:8px 12px;border-radius:999px;font-weight:700">Stack: KiCad, C (MCU), Python (herramientas)</div>
+      </div>
+    </section>
+
+    <div class="grid">
+      <main>
+        <section class="card" id="process">
+          <h2>Proceso de desarrollo</h2>
+
+          <div class="timeline">
+            <div class="milestone">
+              <time>Fase 1 — Definición y requisitos</time>
+              <p>Recopilé requisitos funcionales: GPS con sensibilidad, detección de ladridos mediante micrófonos MEMS, sensor de temperatura con precisión ±0.3°C, batería recargable y protección IP67. Priorización para bajo consumo y tamaño reducido.</p>
+            </div>
+
+            <div class="milestone">
+              <time>Fase 2 — Prueba de concepto (PoC)</time>
+              <p>Prototipo rápido con módulo GPS u-blox en placa de pruebas y microcontrolador de desarrollo. Validé recepción satelital, muestreo de audio y lectura del sensor de temperatura.</p>
+            </div>
+
+            <div class="milestone">
+              <time>Fase 3 — Esquemático y selección de componentes</time>
+              <p>Diseño del esquemático en KiCad: MCU ARM Cortex-M33, amplificador para micrófonos MEMS, regulador buck para la batería y conector USB-C para carga. Elegí componentes con disponibilidad y tamaño reducido.</p>
+            </div>
+
+            <div class="milestone">
+              <time>Fase 4 — Diseño de PCB</time>
+              <p>PCB de doble cara, optimización del ruteo de la antena, separación de plano de tierra y control de impedancias para la RF. Preparé archivos Gerber y revisiones de DFM antes de fabricar.</p>
+            </div>
+
+            <div class="milestone">
+              <time>Fase 5 — Firmware</time>
+              <p>Firmware en C: gestor de energía (sleep/awake), pila para GPS parsing, algoritmo FFT simplificado para detección de ladridos en tiempo real y telemetría periódica vía BLE/LTE-M según configuración.</p>
+            </div>
+
+            <div class="milestone">
+              <time>Fase 6 — Ensamblado y pruebas</time>
+              <p>Recepción de las PCBs — soldadura manual de prototipos SMD y pruebas de validación (línea base GPS, sensibilidad de micrófonos, pruebas de batería y estanqueidad).</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="card" style="margin-top:16px">
+          <h2>Decisiones técnicas clave</h2>
+          <ul style="color:var(--muted)">
+            <li><strong>Microcontrolador:</strong> ARM Cortex-M33 por su equilibrio entre potencia y consumo.</li>
+            <li><strong>GPS:</strong> receptor compatible con u-blox por su sensibilidad y agnóstico a GNSS múltiples.</li>
+            <li><strong>Audio:</strong> dos micrófonos MEMS en configuración diferencial para reducir ruido del collar.</li>
+            <li><strong>Gestión energética:</strong> modos de bajo consumo y sincronización de adquisición para extender autonomía.</li>
+            <li><strong>Protección:</strong> sellado IP67 y materiales ligeros para comodidad del animal.</li>
+          </ul>
+        </section>
+
+        <section class="card" style="margin-top:16px">
+          <h2>Fragmento de firmware representativo</h2>
+          <p class="meta">Ejemplo: rutina de muestreo de audio y detección simple por energía.</p>
+          <pre><code>// muestreo_audio.c
+// Buffer circular, cálculo de energía y umbral
+#define SAMPLE_RATE 8000
+#define BUF_LEN 1024
+int16_t buf[BUF_LEN];
+volatile uint32_t write_idx=0;
+
+void adc_callback(int16_t sample){
+  buf[write_idx++ & (BUF_LEN-1)] = sample;
+}
+
+float compute_energy(){
+  uint64_t s=0;
+  for(int i=0;i<BUF_LEN;i++){ int32_t v = buf[i]; s += (uint64_t)(v*v); }
+  return (float)s / BUF_LEN;
+}
+
+// en el loop principal: if energy &gt; umbral => flag de evento
+</code></pre>
+        </section>
+
+      </main>
+
+      <aside>
+        <section class="card">
+          <h3>Especificaciones técnicas</h3>
+          <table>
+            <tr><th>Ítem</th><th>Detalle</th></tr>
+            <tr><td>MCU</td><td>ARM Cortex-M33 (32-bit)</td></tr>
+            <tr><td>GPS</td><td>u-blox compatible, -167 dBm sensitivity</td></tr>
+            <tr><td>Audio</td><td>2 × MEMS, preamplificador, detección por FFT</td></tr>
+            <tr><td>Temp.</td><td>Sensor digital ±0.3°C</td></tr>
+            <tr><td>Batería</td><td>LiPo 400 mAh, carga USB-C</td></tr>
+            <tr><td>Conectividad</td><td>BLE 5.2; LTE-M opcional</td></tr>
+            <tr><td>Protección</td><td>IP67</td></tr>
+            <tr><td>Dimensiones</td><td>40 × 18 × 10 mm</td></tr>
+          </table>
+
+          <h4 style="margin-top:12px">Herramientas</h4>
+          <ul style="color:var(--muted);margin:6px 0 0">
+            <li>KiCad — esquemáticos & PCB</li>
+            <li>OpenOCD / CMSIS — depuración</li>
+            <li>Python — scripts de pruebas y procesamiento</li>
+            <li>Multímetro, analizador LCR, cámara térmica (pruebas)</li>
+          </ul>
+        </section>
+
+        <section class="card" style="margin-top:14px">
+          <h3>Resultados de prueba</h3>
+          <ul style="color:var(--muted)">
+            <li>Autonomía: 48–72 h según frecuencia de muestreo.</li>
+            <li>GPS: tiempo de primer fix < 45 s en campo abierto.</li>
+            <li>Detección de ladridos: detección con <strong>&gt;90%</strong> de precisión en entorno controlado.</li>
+            <li>Temperatura: sensor calibrado, desviación &lt;0.3°C.</li>
+          </ul>
+        </section>
+      </aside>
+    </div>
+
+    <section class="card" id="gallery" style="margin-top:18px">
+      <h2>Galería — de la idea al PCB</h2>
+      <p class="meta">Incluye fotos del prototipo, montaje SMD y PCB final.</p>
+
+      <div class="gallery">
+        <div class="photo">Boceto inicial</div>
+        <div class="photo">Esquemático KiCad</div>
+        <div class="photo">Prototipo en placa de pruebas</div>
+        <div class="photo">PCB ensamblada (top)</div>
+        <div class="photo">PCB ensamblada (bottom)</div>
+        <div class="photo">Pruebas en campo</div>
+      </div>
+
+      <div style="margin-top:12px">
+        <h3>Fotos de la PCB</h3>
+        <div class="gallery" style="margin-top:8px">
+          <div class="photo">Foto PCB 1</div>
+          <div class="photo">Foto PCB 2</div>
+          <div class="photo">Foto PCB 3</div>
+        </div>
+        <p style="color:var(--muted);margin-top:10px">Sustituye los bloques anteriores por tus fotos reales (arrastra/pega URLs en el código o reemplaza las tarjetas por &lt;img&gt; con las rutas de tu repo).</p>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:18px">
+      <h2>Conclusiones y aprendizajes</h2>
+      <ul style="color:var(--muted)">
+        <li>La integración de RF y sensores en un factor de forma pequeño requiere iteraciones en el ruteo y en el diseño mecánico.</li>
+        <li>La gestión energética fue crítica: optimizar muestreos y usar modos de sueño amplió la autonomía.</li>
+        <li>Documentación y pruebas reproducibles (scripts en Python) facilitaron comparaciones entre versiones.</li>
+      </ul>
+
+      <h3 style="margin-top:12px">Siguientes pasos</h3>
+      <ol style="color:var(--muted)">
+        <li>Optimizar la antena para mejorar el primer fix en entornos urbanos.</li>
+        <li>Integrar búsqueda por crowd-sourced (app) y gestión segura de cuentas.</li>
+        <li>Reducir coste por unidad y preparar certificaciones (CE / FCC).</li>
+      </ol>
+    </section>
+
+    <footer>
+      <div>Por Jorge Coca García — Ingeniería electrónica · Portafolio</div>
+      <div style="color:var(--muted)">Última actualización: Noviembre 2025</div>
+    </footer>
+  </div>
+</body>
+</html>

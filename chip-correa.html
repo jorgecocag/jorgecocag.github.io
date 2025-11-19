@@ -1,87 +1,146 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Canine Beacon — Project Case Study</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <meta name="description" content="Canine Beacon: IoT chip for dog collars. Case study showing design, prototyping, and PCB images.">
-  <style>
-    :root { --bg:#ffffff; --text:#222222; --accent:#60A5FA; --muted:#555555; --radius:12px; --border-color:#0b1a36; font-family:'Inter',system-ui,Roboto,Arial; max-width:800px; }
-    *{box-sizing:border-box;}
-    html, body{height:100%; margin:0; display:flex; justify-content:center; align-items:center; background:var(--border-color);}
-    body{color:var(--text);}
-    .container{width:100%; max-width:var(--max-width); padding:20px; box-shadow:0 8px 24px rgba(0,0,0,0.1); border-radius:var(--radius); background:#fff; overflow:auto; max-height:95%;}
-    header{margin-bottom:24px; text-align:center;}
-    h1{margin-bottom:8px; font-size:32px;}
-    h2{margin-top:24px;}
-    .intro img{width:100%; border-radius:var(--radius);}
-    .intro p{margin-top:12px; font-size:16px; color:var(--text); line-height:1.5;}
-    .timeline{margin-top:16px; border-left:4px solid var(--accent); padding-left:16px;}
-    .milestone{margin-bottom:16px;}
-    .milestone time{display:block; font-size:14px; color:var(--muted);}
-    .milestone p{margin:6px 0 0;}
-    .gallery{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:16px;}
-    .photo{border-radius:var(--radius); background:#f0f0f0; display:flex; align-items:center; justify-content:center; height:140px; font-weight:700; color:var(--muted);}
-    footer{margin-top:32px; text-align:center; color:var(--muted); font-size:13px;}
-    @media(max-width:900px){.gallery{grid-template-columns:repeat(2,1fr);}}
-    @media(max-width:560px){.gallery{grid-template-columns:1fr;}}
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canine Beacon - Project Case Study</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/jicon.png" rel="icon">
+  <link href="assets/img/jicon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
 </head>
+
 <body>
-  <div class="container">
-    <header>
-      <h1>Canine Beacon</h1>
-      <p style="color:var(--muted);">IoT chip for dog collars — case study</p>
-    </header>
 
-    <section class="intro">
-      <img src="assets/img/portfolio/perro.png" alt="Canine Beacon Device">
-      <p>The Canine Beacon project consists of a compact IoT chip designed to attach to a dog collar. It provides real-time GPS tracking, audio monitoring through MEMS microphones, temperature sensing, and low-power operation for extended battery life. This case study walks through the full development process from concept to PCB assembly.</p>
-    </section>
+  <main id="main">
 
-    <section class="timeline">
-      <h2>Project Roadmap</h2>
-      <div class="milestone">
-        <time>Phase 1 — Requirements</time>
-        <p>Defined functional requirements: GPS sensitivity, audio detection, temperature monitoring, battery life, and water resistance (IP67).</p>
-      </div>
-      <div class="milestone">
-        <time>Phase 2 — Proof of Concept</time>
-        <p>Built a prototype on a breadboard with GPS module and MCU. Validated satellite reception, audio sampling, and temperature reading.</p>
-      </div>
-      <div class="milestone">
-        <time>Phase 3 — Schematic & Component Selection</time>
-        <p>Designed schematic in KiCad, selecting MCU, GPS module, MEMS microphones, voltage regulator, and USB-C connector for charging.</p>
-      </div>
-      <div class="milestone">
-        <time>Phase 4 — PCB Design</time>
-        <p>Created a compact two-layer PCB, optimized antenna routing, and prepared Gerber files for manufacturing.</p>
-      </div>
-      <div class="milestone">
-        <time>Phase 5 — Firmware Development</time>
-        <p>Developed firmware for power management, GPS parsing, audio event detection, and BLE/LTE-M telemetry.</p>
-      </div>
-      <div class="milestone">
-        <time>Phase 6 — Assembly & Testing</time>
-        <p>Soldered prototype PCBs, verified GPS accuracy, audio detection, battery performance, and water resistance.</p>
-      </div>
-    </section>
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
+      <div class="container">
 
-    <section class="gallery">
-      <h2>Final PCB and Prototype Images</h2>
-      <div class="photo">Initial Sketch</div>
-      <div class="photo">KiCad Schematic</div>
-      <div class="photo">Breadboard Prototype</div>
-      <div class="photo">PCB Top View</div>
-      <div class="photo">PCB Bottom View</div>
-      <div class="photo">Field Testing</div>
-    </section>
+        <div class="row gy-4">
 
-    <footer>
-      <p>© Jorge Coca García — Electronics & Embedded Systems Portfolio</p>
-      <p>Last updated: November 2025</p>
-    </footer>
-  </div>
+          <div class="col-lg-8">
+            <div class="portfolio-details-slider swiper">
+              <div class="swiper-wrapper align-items-center">
+
+                <div class="swiper-slide">
+                  <img src="assets/img/portfolio/perro.png" alt="Canine Beacon Device">
+                </div>
+
+                <div class="swiper-slide">
+                  <img src="assets/img/portfolio/portfolio-details-2.jpg" alt="PCB Design">
+                </div>
+
+                <div class="swiper-slide">
+                  <img src="assets/img/portfolio/portfolio-details-3.jpg" alt="Prototype Testing">
+                </div>
+
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="portfolio-info">
+              <h3>Project information</h3>
+              <ul>
+                <li><strong>Category</strong>: Electronics Design</li>
+                <li><strong>Project date</strong>: November 2025</li>
+                <li><strong>Project URL</strong>: <a href="chip-correa.html">Canine Beacon</a></li>
+              </ul>
+            </div>
+            <div class="portfolio-description">
+              <h2>Canine Beacon - IoT chip for dog collars</h2>
+              <p>
+                The Canine Beacon project consists of a compact IoT chip designed to attach to a dog collar. It provides real-time GPS tracking, audio monitoring through MEMS microphones, temperature sensing, and low-power operation for extended battery life.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row mt-4">
+          <div class="col-lg-12">
+            <div class="resume">
+              <h3 class="resume-title">Project Roadmap</h3>
+              
+              <div class="resume-item">
+                <h4>Phase 1 — Requirements</h4>
+                <p><em>Defined functional requirements</em></p>
+                <p>GPS sensitivity, audio detection, temperature monitoring, battery life, and water resistance (IP67).</p>
+              </div>
+
+              <div class="resume-item">
+                <h4>Phase 2 — Proof of Concept</h4>
+                <p><em>Breadboard prototype</em></p>
+                <p>Built prototype with GPS module and MCU. Validated satellite reception, audio sampling, and temperature reading.</p>
+              </div>
+
+              <div class="resume-item">
+                <h4>Phase 3 — Schematic & Component Selection</h4>
+                <p><em>KiCad design</em></p>
+                <p>Designed schematic selecting MCU, GPS module, MEMS microphones, voltage regulator, and USB-C connector.</p>
+              </div>
+
+              <div class="resume-item">
+                <h4>Phase 4 — PCB Design</h4>
+                <p><em>Compact two-layer PCB</em></p>
+                <p>Optimized antenna routing and prepared Gerber files for manufacturing.</p>
+              </div>
+
+              <div class="resume-item">
+                <h4>Phase 5 — Firmware Development</h4>
+                <p><em>Embedded programming</em></p>
+                <p>Developed firmware for power management, GPS parsing, audio event detection, and BLE/LTE-M telemetry.</p>
+              </div>
+
+              <div class="resume-item">
+                <h4>Phase 6 — Assembly & Testing</h4>
+                <p><em>Prototype validation</em></p>
+                <p>Soldered prototype PCBs, verified GPS accuracy, audio detection, battery performance, and water resistance.</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+  </main><!-- End #main -->
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
 </body>
+
 </html>

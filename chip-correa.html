@@ -29,7 +29,7 @@
 
   <style>
     .project-hero {
-      background: url('assets/img/portfolio/perro.png') top center;
+      background: url('assets/img/portfolio/perro.png') bottom;
       background-size: cover;
       height: 60vh;
       display: flex;
@@ -202,32 +202,33 @@
 
         <div class="section-title">
           <h2>Project Description</h2>
-          <p>The Smart Dog Collar Chip is an innovative IoT device designed to provide comprehensive monitoring and tracking capabilities for pets. This compact device integrates multiple sensors and communication modules to ensure the safety and well-being of your furry friends.</p>
+          <p>This electronic design project called Smart Dog Collar Chip is a compact device designed to monitor and track the dog wearing it. It integrates multiple sensors, a durable built-in battery, and Bluetooth communication modules to ensure the safety and well-being of your canine companion.
+            The goal of this project is to monitor the health, physical activity, and treatment of dogs, with a special focus on guide dogs for the visually impaired.</p>
         </div>
 
         <div class="row">
           <div class="col-lg-6" data-aos="fade-right">
             <h3>Key Features</h3>
             <ul>
-              <li><strong>GPS Tracking:</strong> Real-time location tracking with geofencing capabilities</li>
-              <li><strong>Temperature Monitoring:</strong> Continuous body temperature measurement</li>
-              <li><strong>Activity Tracking:</strong> Monitors daily activity levels and sleep patterns</li>
-              <li><strong>Audio Monitoring:</strong> Built-in microphone for remote listening</li>
-              <li><strong>Long Battery Life:</strong> Up to 2 weeks of operation on a single charge</li>
-              <li><strong>Water Resistant:</strong> IP67 rating for protection against water and dust</li>
-              <li><strong>Mobile App Integration:</strong> Companion app for iOS and Android</li>
+              <li><strong> GNSS/GPS module</strong> footprint with RF keep-out routing.</li>
+              <li><strong> Temperature sensor</strong> integrated via I²C.</li>
+              <li><strong>3-axis IMU </strong> (accelerometer & gyroscope) for motion sensing.</li>
+              <li><strong>Dual MEMS microphones  </strong>for audio-event capture.</li>
+              <li><strong>PMIC-based power regulation </strong> for all system rails.</li>
+              <li><strong>Battery input connector  </strong>for Li-ion collar integration.</li>
+              <li><strong>STM32 MCU </strong> with BLE antenna and matching network.</li>
+              <li>Separated analog / digital / RF layout zones.</li>
             </ul>
           </div>
           <div class="col-lg-6" data-aos="fade-left">
             <h3>Technical Specifications</h3>
             <ul>
-              <li><strong>Microcontroller:</strong> ESP32 with integrated Wi-Fi and Bluetooth</li>
-              <li><strong>GPS Module:</strong> u-blox NEO-6M with external antenna</li>
-              <li><strong>Sensors:</strong> Temperature, accelerometer, microphone</li>
-              <li><strong>Battery:</strong> 1000mAh Li-Po with charging circuit</li>
-              <li><strong>Connectivity:</strong> Wi-Fi, Bluetooth 5.0, and optional cellular module</li>
-              <li><strong>Dimensions:</strong> 40mm x 30mm x 10mm</li>
-              <li><strong>Weight:</strong> 15 grams (excluding collar)</li>
+              <li><strong>Microcontroller:</strong> STM32WB05xZ with onboard BLE support; direct PCB-printed Bluetooth antenna.</li>
+              <li><strong>Power Management:</strong> NEH7100BU PMIC; supports Li-ion battery input and USB-C charging interface.</li>
+              <li><strong>Sensors:</strong> BME280 (temperature, pressure, humidity) and ICM-20948 (3-axis IMU); communicate via I²C.</li>
+              <li><strong>GPS Module:</strong> MAX-8; communicates via UART.</li>
+              <li><strong>Audio:</strong> Dual ICS43434 MEMS microphones; interface via I²S.</li>
+              <li><strong>PCB Layout Highlights:</strong> Compact wearable-oriented form factor; analog, digital and RF separation; controlled trace routing for RF and I²S signals.</li>
             </ul>
           </div>
         </div>
@@ -241,80 +242,69 @@
 
         <div class="section-title">
           <h2>Project Roadmap</h2>
-          <p>The development of the Smart Dog Collar Chip followed a structured approach from concept to final product.</p>
+          <p>The Smart Dog Collar Chip PCB design followed a structured workflow focused on component selection, layout, and verification.</p>
         </div>
 
         <div class="roadmap-timeline">
           
           <div class="timeline-item" data-aos="fade-up">
             <div class="timeline-content">
-              <h4>Phase 1: Research & Concept</h4>
-              <p><em>January 2023 - February 2023</em></p>
+              <h4>Phase 1: Concept & Feasibility</h4>
               <ul>
-                <li>Market analysis and user requirements gathering</li>
-                <li>Technical feasibility study</li>
-                <li>Initial concept design and specifications</li>
-                <li>Component selection and sourcing</li>
+                <li>Assess PCB design possibilities and constraints</li>
+                <li>Define project scope and functional blocks</li>
+                <li>Evaluate potential components for MCU, sensors, PMIC, and connectivity</li>
               </ul>
             </div>
           </div>
 
           <div class="timeline-item" data-aos="fade-up">
             <div class="timeline-content">
-              <h4>Phase 2: PCB Design & Prototyping</h4>
-              <p><em>March 2023 - May 2023</em></p>
+              <h4>Phase 2: Component Selection & Footprints</h4>
               <ul>
-                <li>Schematic design and component placement</li>
-                <li>PCB layout with focus on miniaturization</li>
-                <li>Prototype fabrication and assembly</li>
-                <li>Initial testing and validation</li>
+                <li>Finalize selection of MCU, PMIC, sensors, GPS, and audio components</li>
+                <li>Create or verify footprints for all components in Altium</li>
+                <li>Ensure mechanical and electrical compatibility with intended board size</li>
               </ul>
             </div>
           </div>
 
           <div class="timeline-item" data-aos="fade-up">
             <div class="timeline-content">
-              <h4>Phase 3: Firmware Development</h4>
-              <p><em>June 2023 - August 2023</em></p>
+              <h4>Phase 3: Placement & Schematic Design</h4>
               <ul>
-                <li>Embedded software development for ESP32</li>
-                <li>Sensor integration and calibration</li>
-                <li>Power management optimization</li>
-                <li>Communication protocols implementation</li>
+                <li>Complete schematic capture for all components and interfaces</li>
+                <li>Optimize component placement for signal integrity, RF, and analog/digital separation</li>
+                <li>Consider power routing and decoupling strategies</li>
               </ul>
             </div>
           </div>
 
           <div class="timeline-item" data-aos="fade-up">
             <div class="timeline-content">
-              <h4>Phase 4: Enclosure Design & Testing</h4>
-              <p><em>September 2023 - November 2023</em></p>
+              <h4>Phase 4: PCB Routing & Layout</h4>
               <ul>
-                <li>3D modeling of enclosure</li>
-                <li>Material selection for durability and comfort</li>
-                <li>Environmental testing (water, shock, temperature)</li>
-                <li>User testing with volunteer pet owners</li>
+                <li>Route signal, power, and RF traces with controlled impedance where needed</li>
+                <li>Design BLE antenna directly on PCB and integrate GPS traces</li>
+                <li>Verify clearances, via placements, and board outline for wearable form factor</li>
               </ul>
             </div>
           </div>
 
           <div class="timeline-item" data-aos="fade-up">
             <div class="timeline-content">
-              <h4>Phase 5: Final Product & Documentation</h4>
-              <p><em>December 2023 - Present</em></p>
+              <h4>Phase 5: Verification & Review</h4>
               <ul>
-                <li>Final design refinements</li>
-                <li>Manufacturing preparation</li>
-                <li>Documentation and user manual</li>
-                <li>App development and integration</li>
+                <li>Perform DRC (Design Rule Check) and ERC (Electrical Rule Check)</li>
+                <li>Inspect footprints, placement, and routing for manufacturability</li>
+                <li>Finalize PCB design for prototype fabrication</li>
               </ul>
             </div>
           </div>
 
         </div>
-
       </div>
-    </section><!-- End Roadmap Section -->
+    </section>
 
     <!-- ======= Gallery Section ======= -->
     <section id="gallery" class="gallery">
@@ -339,53 +329,55 @@
 
           <div class="col-lg-4 col-md-6 gallery-item" data-aos="fade-up" data-aos-delay="100">
             <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/pcb-design.jpg" class="img-fluid" alt="PCB Design">
+              <img src="assets/img/portfolio/top_layer.png" class="img-fluid" alt="PCB Design">
               <div class="portfolio-links">
-                <a href="assets/img/portfolio/pcb-design.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="PCB Design"><i class="bx bx-plus"></i></a>
+                <a href="assets/img/portfolio/top_layer.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="PCB Design"><i class="bx bx-plus"></i></a>
               </div>
             </div>
-            <p class="text-center mt-2"><strong>PCB Layout</strong></p>
+            <p class="text-center mt-2"><strong>Top layer</strong></p>
           </div>
 
           <div class="col-lg-4 col-md-6 gallery-item" data-aos="fade-up" data-aos-delay="200">
             <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/prototype.jpg" class="img-fluid" alt="Prototype">
+              <img src="assets/img/portfolio/bottom_layer.png" class="img-fluid" alt="Prototype">
               <div class="portfolio-links">
-                <a href="assets/img/portfolio/prototype.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Prototype"><i class="bx bx-plus"></i></a>
+                <a href="assets/img/portfolio/bottom_layer.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Prototype"><i class="bx bx-plus"></i></a>
               </div>
             </div>
-            <p class="text-center mt-2"><strong>First Prototype</strong></p>
-          </div>
-
-          <div class="col-lg-4 col-md-6 gallery-item" data-aos="fade-up">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/enclosure.jpg" class="img-fluid" alt="Enclosure Design">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/enclosure.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Enclosure Design"><i class="bx bx-plus"></i></a>
-              </div>
-            </div>
-            <p class="text-center mt-2"><strong>3D Printed Enclosure</strong></p>
-          </div>
-
-          <div class="col-lg-4 col-md-6 gallery-item" data-aos="fade-up" data-aos-delay="100">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/testing.jpg" class="img-fluid" alt="Testing">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/testing.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Testing"><i class="bx bx-plus"></i></a>
-              </div>
-            </div>
-            <p class="text-center mt-2"><strong>Environmental Testing</strong></p>
+            <p class="text-center mt-2"><strong>Bottom layer</strong></p>
           </div>
 
           <div class="col-lg-4 col-md-6 gallery-item" data-aos="fade-up" data-aos-delay="200">
             <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/final-product.jpg" class="img-fluid" alt="Final Product">
+              <img src="assets/img/portfolio/controller.png" class="img-fluid" alt="Prototype">
               <div class="portfolio-links">
-                <a href="assets/img/portfolio/final-product.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Final Product"><i class="bx bx-plus"></i></a>
+                <a href="assets/img/portfolio/controller.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Prototype"><i class="bx bx-plus"></i></a>
               </div>
             </div>
-            <p class="text-center mt-2"><strong>Final Product</strong></p>
+            <p class="text-center mt-2"><strong>ICU schematic</strong></p>
           </div>
+
+          <div class="col-lg-4 col-md-6 gallery-item" data-aos="fade-up" data-aos-delay="200">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/sensores.png" class="img-fluid" alt="Prototype">
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/sensores.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Prototype"><i class="bx bx-plus"></i></a>
+              </div>
+            </div>
+            <p class="text-center mt-2"><strong>Sensors schematic</strong></p>
+          </div>
+
+          <div class="col-lg-4 col-md-6 gallery-item" data-aos="fade-up" data-aos-delay="200">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/3D.png" class="img-fluid" alt="Prototype">
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/3D.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Prototype"><i class="bx bx-plus"></i></a>
+              </div>
+            </div>
+            <p class="text-center mt-2"><strong>3D</strong></p>
+          </div>
+
+          
 
         </div>
 
@@ -398,40 +390,56 @@
 
         <div class="section-title">
           <h2>Technical Challenges & Solutions</h2>
-          <p>Overcoming obstacles in the development process.</p>
+          <p>Key PCB design challenges encountered and how they were addressed.</p>
         </div>
 
         <div class="row">
-          
+
           <div class="col-lg-6" data-aos="fade-up">
             <div class="challenge-box">
-              <h4>Power Management</h4>
-              <p><strong>Challenge:</strong> Achieving extended battery life while maintaining continuous GPS tracking.</p>
-              <p><strong>Solution:</strong> Implemented adaptive GPS polling based on movement detection and optimized sleep modes for all components.</p>
+              <h4><strong>BLE Antenna Integration</strong></h4>
+              <p><strong>Challenge:</strong> Designing a PCB-printed Bluetooth antenna without interference from digital and analog sections.</p>
+              <p><strong>Solution:</strong> Separated RF, digital, and analog zones; implemented dedicated ground planes and controlled impedance routing for the antenna.</p>
             </div>
           </div>
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
             <div class="challenge-box">
-              <h4>Miniaturization</h4>
-              <p><strong>Challenge:</strong> Fitting all components in a small, lightweight enclosure suitable for a dog collar.</p>
-              <p><strong>Solution:</strong> Used a 4-layer PCB with careful component placement and selected miniature versions of all components.</p>
+              <h4><strong>High-Density Placement</strong></h4>
+              <p><strong>Challenge:</strong> Integrating MCU, PMIC, sensors, and connectors in a compact wearable-sized PCB.</p>
+              <p><strong>Solution:</strong> Optimized component placement by functional blocks, used small-footprint components, and iteratively refined layout in KiCad.</p>
             </div>
           </div>
 
           <div class="col-lg-6" data-aos="fade-up">
             <div class="challenge-box">
-              <h4>Environmental Protection</h4>
-              <p><strong>Challenge:</strong> Ensuring reliable operation in various weather conditions and during water exposure.</p>
-              <p><strong>Solution:</strong> Implemented IP67 rated enclosure with specialized sealing techniques and conformal coating on the PCB.</p>
+              <h4><strong>Power Management</strong></h4>
+              <p><strong>Challenge:</strong> Ensuring stable power rails for MCU and sensors with PMIC and battery input.</p>
+              <p><strong>Solution:</strong> Used NEH7100BU PMIC with proper decoupling, separated power and signal traces, and placed capacitors close to ICs.</p>
             </div>
           </div>
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
             <div class="challenge-box">
-              <h4>Connectivity Reliability</h4>
-              <p><strong>Challenge:</strong> Maintaining stable connection in areas with limited network coverage.</p>
-              <p><strong>Solution:</strong> Implemented data buffering and automatic reconnection protocols with multiple communication fallbacks.</p>
+              <h4><strong>Mixed-Signal Routing</strong></h4>
+              <p><strong>Challenge:</strong> Routing digital (I²C, I²S, UART) and analog/RF signals without interference.</p>
+              <p><strong>Solution:</strong> Used short trace routing, differential lines for I²S, analog/digital separation, and controlled impedance where required.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up">
+            <div class="challenge-box">
+              <h4><strong>Sensor Integration</strong></h4>
+              <p><strong>Challenge:</strong> Connecting BME280 and ICM-20948 sensors reliably and maintaining easy access for debugging.</p>
+              <p><strong>Solution:</strong> Placed sensors in functional blocks, isolated I²C lines from high-speed signals, and added test points for debugging.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="challenge-box">
+              <h4><strong>Mechanical Constraints</strong></h4>
+              <p><strong>Challenge:</strong> Designing the PCB to fit inside a dog-collar form factor with connectors and battery clearance.</p>
+              <p><strong>Solution:</strong> Defined outline early, positioned connectors at edges, and verified clearances for battery and USB-C input.</p>
             </div>
           </div>
 
@@ -439,6 +447,7 @@
 
       </div>
     </section><!-- End Challenges Section -->
+
 
   </main><!-- End #main -->
 

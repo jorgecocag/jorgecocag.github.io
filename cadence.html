@@ -14,6 +14,64 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet">
+<style>
+    .roadmap-timeline {
+      position: relative;
+      padding: 20px 0;
+    }
+    .roadmap-timeline:before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #149ddd;
+      transform: translateX(-50%);
+    }
+    .timeline-item {
+      margin-bottom: 40px;
+      position: relative;
+      width: 50%;
+      padding-right: 30px;
+    }
+    .timeline-item:nth-child(even) {
+      margin-left: 50%;
+      padding-right: 0;
+      padding-left: 30px;
+    }
+    .timeline-content {
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .timeline-content h4 {
+      margin-top: 0;
+      color: #149ddd;
+    }
+    .timeline-item:before {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #149ddd;
+      border-radius: 50%;
+      top: 20px;
+      right: -10px;
+      z-index: 1;
+    }
+    .timeline-item:nth-child(even):before {
+      right: auto;
+      left: -10px;
+    }
+    @media (max-width: 768px) {
+      .roadmap-timeline:before { left: 30px; }
+      .timeline-item { width: 100%; padding-right: 0; padding-left: 50px; }
+      .timeline-item:nth-child(even) { margin-left: 0; padding-left: 50px; }
+      .timeline-item:before, .timeline-item:nth-child(even):before { left: 20px; }
+    }
+  </style>
 </head>
 <body>
   <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>

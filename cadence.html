@@ -82,7 +82,7 @@
         <h1 class="text-light fs-4 fw-bold">Jorge Coca <br> García</h1>
         <div class="social-links mt-3 text-center">
           <a href="https://github.com/jorgecocag" class="google-plus"><i class="bx bxl-github"></i></a>
-          <a href="https://www.linkedin.com/in/jorge-coca-garcia/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+          <<a href="https://www.linkedin.com/in/jorge-coca-garcia/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
         </div>
       </div>
 
@@ -102,57 +102,115 @@
     <div style="position:absolute; inset:0; background:rgba(5,13,24,0.7);"></div>
     <div class="project-hero-content" style="position:relative; z-index:2; text-align:center; color:white;">
       <h1>Full-Custom Microcontroller Design</h1>
-      <p>ALU, Counter, Logic Gates, and Data Path</p>
+      <p>ALU, Contador, Puertas Lógicas y Ruta de Datos</p>
     </div>
   </section>
 
   <main id="main">
     <section id="project-description" class="project-description">
       <div class="container">
+
         <div class="section-title">
-          <h2>Project Description</h2>
-          <p>This project implements key components of a custom microcontroller using full-custom and standard-cell CMOS design. The work includes the creation of logic gates, an 8-bit ALU, a synchronous 8-bit counter, and supporting combinational blocks such as multiplexers and tri-state buffers.</p>
+          <h2>Practice Overview and Objectives</h2>
+          <p>This set of laboratory practices develops, implements, and characterizes the fundamental blocks of a CMOS microcontroller using both <strong>full-custom</strong> and <strong>standard-cell</strong> design inside the Cadence environment. The main goal was to physically and functionally design and verify a <strong>complete 8-bit ALU</strong> and a <strong>synchronous 8-bit counter</strong>, as well as the logic gates and combinational modules required for their operation.</p>
         </div>
 
         <div class="row">
           <div class="col-lg-6" data-aos="fade-right">
-            <h3>Main Components</h3>
+            <h3>Learning Cadence and the Design Flow</h3>
+            <p>The project was carried out entirely in the Cadence Virtuoso suite (schematics, simulation, parasitic extraction, DRC/LVS verification, and full‑custom layout). The practices covered the following workflows and Cadence tools:</p>
             <ul>
-              <li>Full-custom CMOS logic gates (Inverter, NAND, NOR)</li>
-              <li>Full-custom 1-bit Full Adder</li>
-              <li>8-bit ALU implementing 7 operations</li>
-              <li>8-bit synchronous T-flip-flop counter</li>
-              <li>Selectors, tri-state buffers, multiplexers</li>
-              <li>Complete layout, DRC and LVS verification</li>
+              <li><strong>Schematic Capture:</strong> hierarchical design of modules (logic gates, full‑adder, bit‑slice, ALU, flip‑flops).</li>
+              <li><strong>Transient & DC Simulations:</strong> delay characterization (t<sub>HL</sub>, t<sub>LH</sub>, propagation delay), static and dynamic power measurements.</li>
+              <li><strong>Layout & DRC/LVS:</strong> full-custom layout generation, rule verification (DRC) and schematic‑layout equivalence checks (LVS).</li>
+              <li><strong>Parasitic Extraction:</strong> obtaining realistic delays and power consumption using extracted capacitances (2–3 fF loads).</li>
+              <li><strong>Power Analysis:</strong> computation of average and peak power using Cadence’s calculator with dynamic input vectors.</li>
             </ul>
+            <p>This workflow provided practical experience moving from logical design to a verified physical implementation, understanding how topology and transistor sizing affect delay, and how layout decisions impact parasitics, power consumption, and performance.</p>
           </div>
 
           <div class="col-lg-6" data-aos="fade-left">
-            <h3>Key Specifications</h3>
+            <h3>Components Developed</h3>
             <ul>
-              <li>Technology: CMOS with minimum-length transistors</li>
-              <li>Clock frequency testing performed at 20 MHz</li>
-              <li>Custom layout using Cadence Virtuoso</li>
-              <li>Power and delay analysis for all blocks</li>
-              <li>Maximum counter frequency: 420 MHz</li>
-              <li>ALU supports AND, OR, XOR, XNOR, Load A, Invert A, A+B</li>
+              <li>Full‑custom CMOS gates: Inverter, NAND, and NOR (layout + delay characterization).</li>
+              <li>Full‑custom 1‑bit Full Adder (symmetric topology, Euler paths, optimized layout).</li>
+              <li>Multiplexers (2:1, 3:1, 4:1), selector and tri‑state buffer using standard cells where appropriate.</li>
+              <li>8‑bit ALU implemented using a bit‑slice architecture, supporting 7 operations.</li>
+              <li>D‑Flip‑Flop and T‑Flip‑Flop (implemented using a DFF + XOR), and the synchronous 8‑bit counter.</li>
             </ul>
           </div>
         </div>
+
+        <hr>
+
+        <div class="section-title mt-4">
+          <h2>Focus on the 8‑bit ALU</h2>
+          <p>Technical description and key design details.</p>
+        </div>
+
+        <div class="row">
+          <div class="col-12" data-aos="fade-up">
+            <h4>Architecture and Bit‑Slice Structure</h4>
+            <p>The ALU was designed using a <em>bit‑slice</em> structure, replicating an identical 1‑bit block containing the full‑adder, logic operations, and multiplexers required for operation selection. This approach improves modularity and simplifies testing and scalability.</p>
+
+            <h4>Supported Operations</h4>
+            <p>The ALU supports 7 operations selected by 3 control signals (S0, S1, S2): AND, OR, XOR, XNOR, Load A, Invert A, and A+B addition. Multiplexers (4:1, 3:1, and 2:1) consolidate logic and arithmetic outputs into the final 8‑bit result.</p>
+
+            <h4>Full‑Adder Design</h4>
+            <p>The full‑adder was implemented full‑custom using a symmetric transistor topology to balance rise/fall delays. The design process included:</p>
+            <ul>
+              <li>Analysis of FA topologies (logic‑gate based vs transmission‑gate based).</li>
+              <li>Transistor sizing: pMOS set to ~2× the width of nMOS to compensate carrier mobility.</li>
+              <li>Use of Euler paths to create a compact transistor ordering for layout.</li>
+              <li>LVS verification and parasitic extraction prior to final simulation.</li>
+            </ul>
+
+            <h4>Characterization</h4>
+            <p>The full ALU was characterized for area, static and dynamic power, and timing. The critical path is dominated by the chained propagation of carry through the 8 full‑adders and the final multiplexer.</p>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="section-title mt-4">
+          <h2>Focus on the 8‑bit Synchronous Counter</h2>
+          <p>Design, implementation and performance results of the counter feeding the microcontroller ROM.</p>
+        </div>
+
+        <div class="row">
+          <div class="col-12" data-aos="fade-up">
+            <h4>Topology and Functionality</h4>
+            <p>The 8‑bit counter was implemented using T‑Flip‑Flops. Each T‑Flip‑Flop was built from a standard‑cell D‑Flip‑Flop (DFCX1) and a 2‑input XOR gate. The clock and reset signals are shared across all 8 stages, ensuring synchronous counting.</p>
+
+            <h4>Timing Characterization</h4>
+            <p>Key timing parameters measured during the practice:</p>
+            <ul>
+              <li>D‑Flip‑Flop (DFCX1): t<sub>prop</sub> ≈ 0.5069 ns; t<sub>setup</sub> ≈ 0.115 ns; t<sub>hold</sub> ≈ 0.075 ns.</li>
+              <li>T‑Flip‑Flop (DFF + XOR): t<sub>prop</sub> ≈ 0.5616 ns; t<sub>setup</sub> ≈ 0.433 ns; t<sub>hold</sub> ≈ 0 ns (due to XOR propagation).</li>
+            </ul>
+
+            <h4>Maximum Frequency and Performance</h4>
+            <p>Taking into account T‑FF setup and propagation times and the delay of the AND gates that generate the T inputs, the maximum theoretical frequency of the counter was calculated to be approximately <strong>420 MHz</strong>. Practical simulations were performed at 20 MHz with 3 fF loads for power analysis.</p>
+
+            <h4>Layout and Clock Considerations</h4>
+            <p>To minimize clock skew and wire resistance, the clock and reset networks were routed using higher metal layers and straight paths. The counter layout arranges all modules horizontally, reducing area and simplifying routing.</p>
+
+            <h4>Results</h4>
+            <p>The final layout is compact, electrically correct (DRC/LVS), and shows power consumption consistent with the expected switching activity. The design prioritizes robust clock distribution and synchronous operation.</p>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <!-- ======= Roadmap Section ======= -->
     <section id="roadmap" class="roadmap section-bg">
       <div class="container">
-
         <div class="section-title">
           <h2>Project Roadmap</h2>
           <p>Design progression from basic logic gates to full 8-bit ALU and counter.</p>
         </div>
 
         <div class="roadmap-timeline">
-          
           <div class="timeline-item" data-aos="fade-up">
             <div class="timeline-content">
               <h4>Phase 1: CMOS Logic Gates</h4>
@@ -207,7 +265,6 @@
               </ul>
             </div>
           </div>
-
         </div>
       </div>
     </section>
